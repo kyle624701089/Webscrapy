@@ -16,6 +16,26 @@
 
 本仓库示例代码均在 python 3.5 上运行测试，执行程序前请**安装代码中程序包**
 
+```
+pip install --upgrade pip
+pip install \
+    xlwt \
+    argparse \
+    requests \
+    geocoder \
+    bs4 \
+    selenium \
+    geopy \
+    xlrd \
+    numpy \
+    pandas \
+    folium \
+    lxml \
+    sklearn
+```
+
+> pandas requires Python '>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*'
+
 然后先克隆项目内容
 
 ```git
@@ -30,7 +50,28 @@ git clone https://github.com/Equationliu/Webscrapy.git
 
 ##### ubuntu 安装
 
-待定
+前往[官网](http://npm.taobao.org/mirrors/chromedriver/)下载驱动并解压
+
+<img src="https://img-blog.csdn.net/20180321101743179?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2ZlbmdsdHh4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="700px" />
+
+关键步骤就是将其加入路径，使用以下方式可以以管理员模式打开文件系统从而避免权限问题
+
+```bash
+sudo nautilus
+```
+
+然后将解压后的文件移动到 ` /usr/bin` 路径
+
+> 测试时发现ubuntu下绘图时中文会出现乱码，参考[解决方案](https://blog.csdn.net/jeff_liu_sky_/article/details/54023745) 安装字体即可
+
+并修改以下两处代码：(89-92,142-145行)
+
+```python
+# Windows 用户
+driver = webdriver.Chrome('chromedriver.exe', options=chrome_options)
+# ubuntu 用户，确保已经添加驱动到了路径
+# driver = webdriver.Chrome('chromedriver', options=chrome_options)
+```
 
 ### 开始爬取
 
@@ -108,3 +149,6 @@ python wash_data.py
 可见快充和慢充还是不太一样的，快充就只有北京最为“燥热”
 
 但是感觉上述可视化还不够呀，至少不够震撼，下面该 Echarts 登场了
+
+### Echarts
+

@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import re
+import os
 import time  # 需要导入的模块
 import xlwt
 import argparse
@@ -84,7 +85,11 @@ def main():
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
+
+        # Windows 用户
         driver = webdriver.Chrome('chromedriver.exe', options=chrome_options)
+        # ubuntu 用户，确保已经添加驱动到了路径
+        # driver = webdriver.Chrome('chromedriver', options=chrome_options)
 
         i = 0
         for province_id in province:
@@ -138,7 +143,12 @@ def main():
         chrome_options.add_argument('--headless')
         chrome_options.add_argument('--disable-gpu')
         chrome_options.add_argument('--no-sandbox')
+
+        # Windows 用户
         driver = webdriver.Chrome('chromedriver.exe', options=chrome_options)
+        # ubuntu 用户，确保已经添加驱动到了路径
+        # driver = webdriver.Chrome('chromedriver', options=chrome_options)
+
         driver.get(url_now)
         try:
             element = WebDriverWait(driver, 5).until(             # 直到指定 id 出现方才抓取，此案例中不是必要语句
