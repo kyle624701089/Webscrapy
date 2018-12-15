@@ -61,7 +61,7 @@ python chargebar_scrapy_main.py -h
 
 **示例：**
 
-```python
+```bash
 python chargebar_scrapy_main.py --range=全国   ## 获取各省份充电站总数据
 python chargebar_scrapy_main.py --range=云南省   ## 获取云南省充电桩
 python chargebar_scrapy_main.py --range=云南省 --convert=Yes --ak=你的ak    ## 获取云南省充电桩并调用百度API转换地址为经纬度
