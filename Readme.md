@@ -1,6 +1,6 @@
 # Python 网络爬虫实战与数据可视化
 
-本仓库主要涵盖作者实践 python 网络爬虫与数据可视化的实例，代码示例仅供分享与学习使用，**不可用于任何商业目的**
+本仓库主要涵盖作者实践 python  网络爬虫与数据可视化的实例，代码示例仅供分享与学习使用，**不可用于任何商业目的**
 
 ## 全国电动汽车充电站数据爬取
 
@@ -54,7 +54,7 @@ git clone https://github.com/Equationliu/Webscrapy.git
 
 <img src="https://img-blog.csdn.net/20180321101743179?watermark/2/text/Ly9ibG9nLmNzZG4ubmV0L2ZlbmdsdHh4/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" width="700px" />
 
-关键步骤就是将其加入路径，使用以下方式可以以管理员模式打开文件系统从而避免权限问题
+关键步骤就是将其加入路径，ubuntu下使用以下方式可以以管理员模式打开文件系统从而避免权限问题
 
 ```bash
 sudo nautilus
@@ -126,13 +126,13 @@ grabing complete in 17m 60s
 百度找不到这个地方呢！或 API 额度已超限！
 ```
 
-除此之外，即便是识别出了地址，地址也不一定准确，实验发现部分省份的数据竟指向了其他省份，并且数量并不低，再修改正则表达式较比较繁琐，而且出于学习角度并不需要十分精确的数据，故而使用了**离群点检测（LOF）**进行一个数据的清洗
+除此之外，即便是识别出了地址，地址也不一定准确，实验发现部分省份的数据竟指向了其他省份，并且数量并不低，再修改正则表达式较比较繁琐，而且出于学习角度并不需要十分精确的数据，故而使用了 [离群点检测（LOF）](https://zhuanlan.zhihu.com/p/37753692) 进行一个数据的清洗
 
 ```
 python wash_data.py
 ```
 
-> 实验发现发生了大偏差的数据点离群因子会非常高，根据实验取 k=8 ,即离群因子大于 8认为数据没有偏差
+> 实验发现发生了大偏差的数据点离群因子会非常高，根据实验取 $k=8$ ,即离群因子大于 8 认为数据没有偏差
 
 以上海市和山西省为例
 
@@ -152,3 +152,14 @@ python wash_data.py
 
 ### Echarts
 
+python 中有针对 Echarts 专门开发的 pyecharts，可参考[中文文档](http://pyecharts.org/#/zh-cn/prepare)
+
+<img src="https://i.loli.net/2018/12/15/5c151ff933e29.png" width="700px" />
+
+但是上述实现由于点之间相互遮挡反而不是很直观，这时候新版本的 echarts 的混合模式：blendmode 便很有用了，具体实现可以参照[ECharts 实现地图散点图](http://echarts.baidu.com/blog/2016/04/28/echarts-map-tutorial.html) 以及 [官方GL散点图](http://www.echartsjs.com/examples/editor.html?c=scatterGL-gps&gl=1)
+
+<img src="https://i.loli.net/2018/12/15/5c151ff928083.png" width="700px" />
+
+这样便有**叠加变亮**的效果了，但是由于分布太过于集中于某些城市，没有官方实例表现效果强（官方数据量大呀~）
+
+最后送上一个各地[地图仓库](https://img.hcharts.cn/mapdata/?tdsourcetag=s_pctim_aiomsg)
