@@ -8,7 +8,7 @@
 
 爬取对象为北汽新能源[网站](http://www.bjev520.com/jsp/beiqi/pcmap/do/index.jsp)提供的数据，简单的可视化后效果
 
-<img src="https://i.loli.net/2018/12/15/5c13e5d6235bf.png" width="700px" />
+<img src="https://i.loli.net/2018/12/15/5c14dfa87fdc8.png" width="700px" />
 
 > 这点数据直接手工录入不就好了吗 :dizzy_face:
 
