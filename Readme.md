@@ -150,7 +150,7 @@ python wash_data.py
 
 但是感觉上述可视化还不够呀，至少不够震撼，下面该 Echarts 登场了
 
-### Echarts
+## Echarts
 
 python 中有针对 Echarts 专门开发的 pyecharts，可参考[中文文档](http://pyecharts.org/#/zh-cn/prepare)
 
@@ -163,3 +163,32 @@ python 中有针对 Echarts 专门开发的 pyecharts，可参考[中文文档](
 这样便有**叠加变亮**的效果了，但是由于分布太过于集中于某些城市，没有官方实例表现效果强（官方数据量大呀~）
 
 最后送上一个各地[地图仓库](https://img.hcharts.cn/mapdata/?tdsourcetag=s_pctim_aiomsg)
+
+
+
+
+
+## 博客图片备份
+
+这里便已[自己博客](http://equations.online/tags/)为例，抓取博客中的图片地址后调用IDM下载到本地，主要防止使用的图床突然崩溃:sob:
+
+> 事实是有几张图片已经找不到来源了，，
+
+### 使用
+
+#### 配置IDM
+
+```python
+def download_IDM(DownUrl,DownPath,OutPutFileName):
+    IDM = r'C:\myapp\IDM\IDMan.exe'   # 本地IDM执行文件路径
+    DownPath = r"D:\Image_backup\equation_blog" + DownPath       # 下载路径
+    call([IDM, '/d',DownUrl, '/p',DownPath, '/f', OutPutFileName, '/n'])
+```
+
+#### 执行
+
+```bash
+ cd Ima*
+ python image_backup.py
+```
+
